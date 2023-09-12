@@ -114,32 +114,32 @@ namespace Tayx.Graphy.Advanced
 
                 m_gameWindowResolutionText.text = m_sb.ToString();
 
-#if GRAPHY_XR
-                // If XR enabled, update screen XR resolution
-                if( XRSettings.enabled )
-                {
-                    m_sb.Length = 0;
+// #if GRAPHY_XR
+//                 // If XR enabled, update screen XR resolution
+//                 if( XRSettings.enabled )
+//                 {
+//                     m_sb.Length = 0;
 
-#if UNITY_2020_2_OR_NEWER
-                    SubsystemManager.GetSubsystems( m_displaySubsystems );
-#else
-                    SubsystemManager.GetInstances( m_displaySubsystems );
-#endif
-                    float refreshRate = -1;
+// #if UNITY_2020_2_OR_NEWER
+//                     SubsystemManager.GetSubsystems( m_displaySubsystems );
+// #else
+//                     SubsystemManager.GetInstances( m_displaySubsystems );
+// #endif
+//                     float refreshRate = -1;
 
-                    if( m_displaySubsystems.Count > 0 )
-                    {
-                        m_displaySubsystems[ 0 ].TryGetDisplayRefreshRate( out refreshRate );
-                    }
+//                     if( m_displaySubsystems.Count > 0 )
+//                     {
+//                         m_displaySubsystems[ 0 ].TryGetDisplayRefreshRate( out refreshRate );
+//                     }
 
-                    m_sb.Append( m_vrStrings[ 0 ] ).Append( XRSettings.eyeTextureWidth.ToStringNonAlloc() )
-                        .Append( m_vrStrings[ 1 ] ).Append( XRSettings.eyeTextureHeight.ToStringNonAlloc() )
-                        .Append( m_vrStrings[ 2 ] ).Append( Mathf.RoundToInt( refreshRate ).ToStringNonAlloc() )
-                        .Append( m_vrStrings[ 3 ] );
+//                     m_sb.Append( m_vrStrings[ 0 ] ).Append( XRSettings.eyeTextureWidth.ToStringNonAlloc() )
+//                         .Append( m_vrStrings[ 1 ] ).Append( XRSettings.eyeTextureHeight.ToStringNonAlloc() )
+//                         .Append( m_vrStrings[ 2 ] ).Append( Mathf.RoundToInt( refreshRate ).ToStringNonAlloc() )
+//                         .Append( m_vrStrings[ 3 ] );
 
-                    m_gameVRResolutionText.text = m_sb.ToString();
-                }
-#endif
+//                     m_gameVRResolutionText.text = m_sb.ToString();
+//                 }
+// #endif
                 
                 // Reset variables
                 m_deltaTime = 0f;
